@@ -1,0 +1,91 @@
+---
+config:
+  theme: dark
+  look: classic
+---
+classDiagram
+direction TB
+    class MenuItem {
+	    - name: str
+	    - price: float
+	    - quantity: int
+	    + calculatePrice() : float
+    }
+    class Drink {
+	    - name: str
+	    - price: float
+	    - size: str
+	    + calculatePrice() : float
+    }
+    class Entrance {
+	    - name: str
+	    - price: float
+	    - isVegetarian: boolean
+	    + calculatePrice() : float
+    }
+    class MainCourse {
+	    - name: str
+	    - price: float
+	    - calories: float
+	    + calculatePrice() : float
+    }
+    class Dessert {
+	    - name: str
+	    - price: float
+	    - isSugarFree: boolean
+	    + calculatePrice() : float
+    }
+    class Pepsi {
+	    - name: str
+	    - price: float
+	    - size: str
+	    + calculatePrice() : float
+    }
+    class OrageJuice {
+	    - name: str
+	    - price: float
+	    - size: str
+	    + calculatePrice() : float
+    }
+    class GarlicBread {
+	    - name: str
+	    - price: float
+	    - isVegetarian: boolean
+	    + calculatePrice() : float
+    }
+    class GrilledChicken {
+	    - name: str
+	    - price: float
+	    - calories: float
+	    + calculatePrice() : float
+    }
+    class Brownie {
+	    - name: str
+	    - price: float
+	    - isSugarFree: boolean
+	    + calculatePrice() : float
+    }
+    class FruitSalad {
+	    - name: str
+	    - price: float
+	    - isSugarFree: boolean
+	    + calculatePrice() : float
+    }
+    class Order {
+	    - items: list
+	    + addItem(item)
+	    +calculateTotal() : float
+	    +applyDiscount(pct) : float
+    }
+
+    MenuItem --* Drink
+    MenuItem --* Entrance
+    MenuItem --* MainCourse
+    MenuItem --* Dessert
+    Drink --> OrageJuice
+    Drink --> Pepsi
+    Entrance --> GarlicBread
+    MainCourse --> GrilledChicken
+    Dessert --> FruitSalad
+    Dessert --> Brownie
+    Order ..> MenuItem
